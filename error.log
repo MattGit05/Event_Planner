@@ -1,0 +1,60 @@
+[24-Nov-2025 02:36:27 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'attendees' in 'field list' in C:\xampp\htdocs\WEB_DEV\save_event.php:52
+Stack trace:
+#0 C:\xampp\htdocs\WEB_DEV\save_event.php(52): mysqli->prepare('\r\n    INSERT IN...')
+#1 {main}
+  thrown in C:\xampp\htdocs\WEB_DEV\save_event.php on line 52
+[24-Nov-2025 02:37:49 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'attendees' in 'field list' in C:\xampp\htdocs\WEB_DEV\save_event.php:52
+Stack trace:
+#0 C:\xampp\htdocs\WEB_DEV\save_event.php(52): mysqli->prepare('\r\n    INSERT IN...')
+#1 {main}
+  thrown in C:\xampp\htdocs\WEB_DEV\save_event.php on line 52
+[24-Nov-2025 02:38:08 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'attendees' in 'field list' in C:\xampp\htdocs\WEB_DEV\save_event.php:52
+Stack trace:
+#0 C:\xampp\htdocs\WEB_DEV\save_event.php(52): mysqli->prepare('\r\n    INSERT IN...')
+#1 {main}
+  thrown in C:\xampp\htdocs\WEB_DEV\save_event.php on line 52
+[24-Nov-2025 02:40:10 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'attendees' in 'field list' in C:\xampp\htdocs\WEB_DEV\save_event.php:52
+Stack trace:
+#0 C:\xampp\htdocs\WEB_DEV\save_event.php(52): mysqli->prepare('\r\n    INSERT IN...')
+#1 {main}
+  thrown in C:\xampp\htdocs\WEB_DEV\save_event.php on line 52
+[24-Nov-2025 03:00:41 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'attendees' in 'field list' in C:\xampp\htdocs\WEB_DEV\save_event.php:52
+Stack trace:
+#0 C:\xampp\htdocs\WEB_DEV\save_event.php(52): mysqli->prepare('\r\n    INSERT IN...')
+#1 {main}
+  thrown in C:\xampp\htdocs\WEB_DEV\save_event.php on line 52
+[24-Nov-2025 03:00:47 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'attendees' in 'field list' in C:\xampp\htdocs\WEB_DEV\save_event.php:52
+Stack trace:
+#0 C:\xampp\htdocs\WEB_DEV\save_event.php(52): mysqli->prepare('\r\n    INSERT IN...')
+#1 {main}
+  thrown in C:\xampp\htdocs\WEB_DEV\save_event.php on line 52
+[27-Nov-2025 07:13:36 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'user_id' in 'field list' in C:\xampp\htdocs\WEB_DEV\event_planner\save_event.php:61
+Stack trace:
+#0 C:\xampp\htdocs\WEB_DEV\event_planner\save_event.php(61): mysqli->prepare('\r\n    INSERT IN...')
+#1 {main}
+  thrown in C:\xampp\htdocs\WEB_DEV\event_planner\save_event.php on line 61
+[27-Nov-2025 07:13:45 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'user_id' in 'field list' in C:\xampp\htdocs\WEB_DEV\event_planner\save_event.php:61
+Stack trace:
+#0 C:\xampp\htdocs\WEB_DEV\event_planner\save_event.php(61): mysqli->prepare('\r\n    INSERT IN...')
+#1 {main}
+  thrown in C:\xampp\htdocs\WEB_DEV\event_planner\save_event.php on line 61
+[27-Nov-2025 07:19:59 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'user_id' in 'field list' in C:\xampp\htdocs\WEB_DEV\event_planner\save_event.php:61
+Stack trace:
+#0 C:\xampp\htdocs\WEB_DEV\event_planner\save_event.php(61): mysqli->prepare('\r\n    INSERT IN...')
+#1 {main}
+  thrown in C:\xampp\htdocs\WEB_DEV\event_planner\save_event.php on line 61
+[27-Nov-2025 15:36:58 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'user_id' in 'field list' in C:\xampp\htdocs\WEB_DEV\event_planner\save_event.php:61
+Stack trace:
+#0 C:\xampp\htdocs\WEB_DEV\event_planner\save_event.php(61): mysqli->prepare('\r\n    INSERT IN...')
+#1 {main}
+  thrown in C:\xampp\htdocs\WEB_DEV\event_planner\save_event.php on line 61
+[27-Nov-2025 15:37:00 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'user_id' in 'field list' in C:\xampp\htdocs\WEB_DEV\event_planner\save_event.php:61
+Stack trace:
+#0 C:\xampp\htdocs\WEB_DEV\event_planner\save_event.php(61): mysqli->prepare('\r\n    INSERT IN...')
+#1 {main}
+  thrown in C:\xampp\htdocs\WEB_DEV\event_planner\save_event.php on line 61
+[27-Nov-2025 15:37:58 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'user_id' in 'field list' in C:\xampp\htdocs\WEB_DEV\event_planner\save_event.php:61
+Stack trace:
+#0 C:\xampp\htdocs\WEB_DEV\event_planner\save_event.php(61): mysqli->prepare('\r\n    INSERT IN...')
+#1 {main}
+  thrown in C:\xampp\htdocs\WEB_DEV\event_planner\save_event.php on line 61
