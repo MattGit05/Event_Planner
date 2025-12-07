@@ -75,6 +75,10 @@ $stmt->execute();
             flex-direction: column;
             justify-content: space-between;
             border-right: 1px solid rgba(0,0,0,0.05);
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
         }
 
         .logo {
@@ -137,6 +141,7 @@ $stmt->execute();
         .main {
             flex: 1;
             padding: 2.5rem 3rem;
+            margin-left: 250px;
         }
 
         .header {
@@ -537,7 +542,7 @@ $stmt->execute();
         @media (max-width: 768px) {
             body { flex-direction: column; }
             .sidebar { width: 100%; height: auto; padding: 1rem; }
-            .main { padding: 1.5rem; }
+            .main { padding: 1.5rem; margin-left: 0; }
             .header { flex-direction: column; align-items: flex-start; gap: 1rem; }
             .logout-btn { align-self: flex-end; }
             .cards { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
@@ -556,6 +561,7 @@ $stmt->execute();
                 <a href="users.php"><span class="material-icons-round">group</span> View all Users</a>
                 <a href="#"><span class="material-icons-round">notifications</span> Notifications</a>
                 <a href="admin_settings.php"><span class="material-icons-round">settings</span> Settings</a>
+                <a href="Budgeting/budget.php"><span class="material-icons-round">account_balance_wallet</span> Budget</a>
             </nav>
         </div>
         <div class="bottom-section">
@@ -658,6 +664,12 @@ $stmt->execute();
                     <label for="eventDesc">Description</label>
                     <textarea id="eventDesc" rows="3"></textarea>
                 </div>
+
+                <div class="form-group">
+                    <label for="budget">Budget (₱)</label>
+                    <input type="number" step="0.01" min="0" id="budget" name="budget" class="form-control" placeholder="Enter allocated budget">
+                </div>
+
 
                 <hr style="border-color: var(--header-bg-light); margin: 1.5rem 0;" />
 

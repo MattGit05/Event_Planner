@@ -141,6 +141,7 @@ body {
       <a href="users.php">👥 View Users</a>
       <a href="notifications.php" style="background:#f0f3fa;">🔔 Notifications</a>
       <a href="admin_settings.php">⚙️ Settings</a>
+      <a href="Budgeting/budget.php">💰 Budget</a>
     </nav>
   </div>
 

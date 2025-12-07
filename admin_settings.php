@@ -52,6 +52,10 @@ body {
   flex-direction: column;
   justify-content: space-between;
   border-right: 1px solid #e0e0e0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
 }
 .dark .sidebar {
   background: #2c2c3e;
@@ -97,6 +101,7 @@ body {
 .main {
   flex: 1;
   padding: 2rem;
+  margin-left: 250px;
 }
 .header {
   display: flex;
@@ -203,8 +208,9 @@ body {
   }
   .main {
     padding: 1rem;
+    margin-left: 0;
   }
-} 
+}
 </style>
 </head>
 

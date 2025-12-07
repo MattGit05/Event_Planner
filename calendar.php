@@ -63,6 +63,10 @@ if(!isset($_SESSION['user_id'])){
             display:flex;
             flex-direction:column;
             border-right: 1px solid rgba(0,0,0,0.05);
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
         }
         .logo { font-size:1.8rem; font-weight:700; color:var(--primary-color); margin-bottom:0.5rem; text-align: left; }
         .subtitle { font-size:0.8rem; color:var(--secondary-color); margin-bottom:2rem; }
@@ -96,6 +100,7 @@ if(!isset($_SESSION['user_id'])){
         .main {
             flex: 1;
             padding: 2.5rem;
+            margin-left: 250px;
         }
         .header {
             display:flex;
@@ -306,16 +311,18 @@ if(!isset($_SESSION['user_id'])){
             <a href="index.php"><span class="material-icons-round">dashboard</span> Dashboard</a>
             <a href="my-events.php"><span class="material-icons-round">event</span> My Events</a>
             <a href="calendar.php" class="active"><span class="material-icons-round">calendar_month</span> Calendar</a>
-            <a href="users.php"><span class="material-icons-round">group</span> Users</a>
+            <a href="users.php"><span class="material-icons-round">group</span> View all Users</a>
+            <a href="notification.php"><span class="material-icons-round">notifications</span> Notifications</a>
             <a href="admin_settings.php"><span class="material-icons-round">settings</span> Settings</a>
+            <a href="Budgeting/budget.php"><span class="material-icons-round">account_balance_wallet</span> Budget</a>
         </nav>
-        <!-- Dark Mode Toggle (For sidebar consistency) -->
-        <div class="bottom-section" style="margin-top: auto;">
-            <div style="font-size:0.9rem; color:var(--secondary-color);">Theme</div>
-            <div class="theme-toggle" style="display:flex; justify-content:space-between; align-items:center; margin-top:5px;">
-                <label for="themeToggle" style="font-size: 0.9rem;">Dark Mode</label>
+        <div class="bottom-section">
+            <div>Theme</div>
+            <div class="theme-toggle">
+                <label>Dark</label>
                 <input type="checkbox" id="themeToggle">
             </div>
+            <div style="margin-top:1rem; font-size:0.8rem;">v1.0 • Connected</div>
         </div>
     </div>
 

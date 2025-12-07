@@ -112,7 +112,7 @@ while ($cat_row = $categories_result->fetch_assoc()) {
       <a class="nav-link mb-2" href="user_dashboard.php"><i class="fa-regular fa-grid-horizontal fa-fw"></i> Dashboard</a>
       <a class="nav-link active mb-2" href="my_events.php"><i class="fa-regular fa-calendar-days fa-fw"></i> My Events</a>
       <a class="nav-link mb-2" href="calendar.php"><i class="fa-regular fa-calendar fa-fw"></i> Calendar</a>
-      <a class="nav-link mb-2" href="user_notification.php"><i class="fa-regular fa-bell fa-fw"></i> Notifications</a>
+      <a class="nav-link mb-2" href="notifications.php"><i class="fa-regular fa-bell fa-fw"></i> Notifications</a>
       <a class="nav-link mb-3" href="user_settings.php"><i class="fa-regular fa-gear fa-fw"></i> Settings</a>
 
       <div style="height:18px"></div>
