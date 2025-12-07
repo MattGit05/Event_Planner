@@ -9,8 +9,14 @@ if(!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin'){
 include 'db_config.php';
 $admin_id = $_SESSION['user_id'];
 
-// fetch notifications from DB
-$stmt = $conn->prepare("SELECT id, title, message, type, is_read, created_at FROM notifications WHERE user_id=? ORDER BY created_at DESC");
+// fetch notifications from DB - show admin's own notifications and user messages
+$stmt = $conn->prepare("
+    SELECT n.id, n.title, n.message, n.type, n.is_read, n.created_at, u.name as sender_name
+    FROM notifications n
+    LEFT JOIN users u ON n.user_id = u.id
+    WHERE n.user_id=? OR n.type='user_message'
+    ORDER BY n.created_at DESC
+");
 $stmt->bind_param("i", $admin_id);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -164,7 +170,12 @@ body {
       <?php foreach($notifications as $notif): ?>
         <div class="notification <?= $notif['is_read'] ? '' : 'unread' ?>" data-id="<?= $notif['id'] ?>">
           <div class="info">
-            <h3><?= htmlspecialchars($notif['title']) ?></h3>
+            <h3>
+              <?= htmlspecialchars($notif['title']) ?>
+              <?php if($notif['type'] === 'user_message' && !empty($notif['sender_name'])): ?>
+                <small style="font-weight: normal; color: #666;">from <?= htmlspecialchars($notif['sender_name']) ?></small>
+              <?php endif; ?>
+            </h3>
             <p><?= htmlspecialchars($notif['message']) ?></p>
             <small><?= date("M d, Y H:i", strtotime($notif['created_at'])) ?></small>
           </div>

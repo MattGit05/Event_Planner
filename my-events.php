@@ -49,16 +49,20 @@ body {
     transition: background 0.3s, color 0.3s;
 }
 
-.sidebar { 
-    width:250px; 
-    background:var(--surface-light); 
+.sidebar {
+    width:250px;
+    background:var(--surface-light);
     padding:2rem 1.5rem;
-    box-shadow:var(--shadow-default); 
-    display:flex; 
-    flex-direction:column; 
+    box-shadow:var(--shadow-default);
+    display:flex;
+    flex-direction:column;
     justify-content:space-between;
     border-right: 1px solid rgba(0,0,0,0.05);
-    
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+
 }
 
 .logo { font-size:1.8rem; font-weight:700; color:var(--primary-color); margin-bottom:0.5rem; }
@@ -278,44 +282,42 @@ body.dark .filters input, body.dark .filters select {
   position: fixed;
   inset: 0;
   display: none;
-  backdrop-filter: blur(5px);
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
   z-index: 1000;
+  backdrop-filter: blur(4px);
 }
 
 /* Modal Container */
 .new-modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 500px;
-  max-height: 80vh;
+  background: var(--surface-light);
+  width: 90%;
+  max-width: 550px;
+  max-height: 90vh;
   overflow-y: auto;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(12px);
-  border-radius: 20px;
-  padding: 20px 25px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0px 8px 25px rgba(0,0,0,0.25);
-  animation: pop 0.28s ease;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+  animation: slideIn 0.3s ease;
 }
 
-@keyframes pop {
-  from { transform: scale(0.85); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
 .modal-header {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--header-bg-light);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .modal-title {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--primary-color);
 }
 
 .close-btn {
@@ -323,45 +325,53 @@ body.dark .filters input, body.dark .filters select {
   border: none;
   font-size: 2rem;
   cursor: pointer;
-  color: #fff;
-  transition: 0.3s;
+  color: var(--secondary-color);
+  transition: color 0.2s;
 }
 
 .close-btn:hover {
-  color: #ff4b4b;
-  transform: scale(1.1);
+  color: var(--danger-color);
 }
 
 .modal-body {
-  margin-top: 15px;
+  padding: 1.5rem 2rem;
 }
 
 .input-group {
-  margin-bottom: 15px;
+  margin-bottom: 1.2rem;
 }
 
 .input-group label {
-  color: #fff;
-  font-weight: 600;
-  margin-bottom: 5px;
   display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--text-color-light);
 }
 
 .input-group input,
 .input-group select,
 .input-group textarea {
   width: 100%;
-  padding: 12px;
-  border-radius: 12px;
-  border: none;
-  background: rgba(255, 255, 255, 0.18);
-  color: #fff;
-  font-size: 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  background: var(--background-light);
+  color: var(--text-color-light);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
 }
 
 textarea {
+  resize: vertical;
   height: 90px;
-  resize: none;
 }
 
 .row {
@@ -374,73 +384,64 @@ textarea {
 }
 
 .attendees-box label {
-  color: #fff;
+  color: var(--text-color-light);
   font-weight: 600;
 }
 
 .modal-actions {
-  margin-top: 20px;
+  padding: 1rem 2rem;
+  border-top: 1px solid var(--header-bg-light);
   display: flex;
   justify-content: flex-end;
   gap: 10px;
 }
 
 .btn {
-  padding: 10px 18px;
-  border-radius: 12px;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
   font-size: 1rem;
   font-weight: 600;
-  transition: 0.3s;
+  transition: background 0.2s;
 }
 
 .btn.cancel {
-  background: #ff4b4b;
-  color: #fff;
+  background: var(--danger-color);
+  color: white;
 }
 
 .btn.primary {
-  background: #4ba3ff;
+  background: var(--accent-purple);
   color: white;
 }
 
 .btn:hover {
-  opacity: 0.85;
-  transform: translateY(-2px);
+  opacity: 0.9;
 }
 
-.save-btn:disabled { background: #a5a5a5; cursor: not-allowed; }
-
-.modal-body { overflow-y:auto; padding:1.5rem 2rem;}
-.form-group { margin-bottom:1.2rem;}
-.form-group label { display:block; font-weight:600; margin-bottom:0.5rem; font-size:0.95rem; }
-.form-group input, .form-group textarea, .form-group select { 
-    width:100%; padding:0.8rem 1rem; border-radius:8px; border:1px solid #ccc; 
-    outline:none; background: var(--background-light); color: var(--text-color-light);
+.save-btn:disabled {
+  background: #a5a5a5;
+  cursor: not-allowed;
 }
-.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
-}
-.form-group textarea { resize:vertical;}
-
-.add-attendee { 
-    background:var(--accent-purple); border:none; color:white; 
-    padding:0.5rem 1rem; border-radius:8px; cursor:pointer; font-weight:500;
-}
-.attendee-list { margin-top:10px; display:flex; flex-direction:column; gap:0.7rem;}
-.attendee-item { display:flex; align-items:center; gap:10px; }
-.attendee-item input { padding:0.6rem; flex:1; }
-.remove-attendee { background:none; border:none; color:var(--danger-color); font-size:1.5rem; cursor:pointer;}
 
 /* Dark Mode Overrides */
-body.dark .sidebar, body.dark .modal-content { background: var(--surface-light); }
-body.dark .nav a:hover { background: rgba(91, 110, 248, 0.1); }
-body.dark .event-card { border: 1px solid #444; }
-body.dark .event-category { background: var(--primary-color); }
-body.dark .modal-header, body.dark .modal-actions.fixed-actions { border-bottom-color: #444; }
-body.dark .form-group input, body.dark .form-group textarea, body.dark .form-group select { border-color: #555; background: #1e1e2e; }
+body.dark .new-modal {
+  background: var(--surface-light);
+  color: var(--text-color-light);
+}
+body.dark .modal-header {
+  border-bottom-color: #444;
+}
+body.dark .modal-actions {
+  border-top-color: #444;
+}
+body.dark .input-group input,
+body.dark .input-group select,
+body.dark .input-group textarea {
+  border-color: #555;
+  background: #1e1e2e;
+}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -559,8 +560,9 @@ body.dark .form-group input, body.dark .form-group textarea, body.dark .form-gro
 
       <div class="attendees-box">
         <label>Attendees</label>
-        <div class="attendee-list" id="attendeeList"></div>
-        <button type="button" class="add-attendee" id="addAttendeeBtn">+ Add Attendee</button>
+        <div class="attendee-list" id="attendeeList">
+          <button type="button" class="add-attendee" id="addAttendeeBtn">+ Add Attendee</button>
+        </div>
       </div>
 
     </form>
@@ -613,7 +615,14 @@ document.addEventListener("DOMContentLoaded", () => {
     closeModal.addEventListener("click", () => closeModalFn());
     window.addEventListener("click", (e) => { if (e.target === eventModal) closeModalFn(); });
 
-    function openModal() { eventModal.style.display = "flex"; }
+    function openModal() {
+        eventModal.style.display = "flex";
+        attendeeList.innerHTML = '<button type="button" class="add-attendee" id="addAttendeeBtn">+ Add Attendee</button>';
+        // Re-attach event listener for the button
+        document.getElementById("addAttendeeBtn").addEventListener("click", () => {
+            loadUsers();
+        });
+    }
     function closeModalFn() {
         eventModal.style.display = "none";
         saveEventBtn.dataset.editId = "";
@@ -626,31 +635,52 @@ document.addEventListener("DOMContentLoaded", () => {
         eventModal.querySelector("h2").textContent = "Add Event";
     }
 
-    // Add attendees functionality
-    const addAttendeeBtn = document.getElementById("addAttendeeBtn");
+    // Load users for attendees
     const attendeeList = document.getElementById("attendeeList");
+    let allUsers = [];
 
-    addAttendeeBtn.addEventListener("click", () => {
-        addAttendeeInput();
-    });
+    async function loadUsers() {
+        try {
+            const res = await fetch("get_users_for_attendees.php");
+            const data = await res.json();
+            if (data.success) {
+                allUsers = data.users;
+                renderUserCheckboxes();
+            } else {
+                attendeeList.innerHTML = `<p style='color: var(--danger-color);'>Failed to load users.</p>`;
+            }
+        } catch (err) {
+            console.error("Error loading users:", err);
+            attendeeList.innerHTML = `<p style='color: var(--danger-color);'>Error loading users.</p>`;
+        }
+    }
 
-    function addAttendeeInput(value = "") {
-        const attendeeItem = document.createElement("div");
-        attendeeItem.className = "attendee-item";
-        attendeeItem.innerHTML = `
-            <input type="text" placeholder="Attendee name or email" value="${value}">
-            <button type="button" class="remove-attendee">&times;</button>
-        `;
-        attendeeList.appendChild(attendeeItem);
-
-        attendeeItem.querySelector(".remove-attendee").addEventListener("click", () => {
-            attendeeItem.remove();
+    function renderUserCheckboxes(selectedAttendees = []) {
+        attendeeList.innerHTML = "";
+        if (allUsers.length === 0) {
+            attendeeList.innerHTML = "<p>No users available.</p>";
+            return;
+        }
+        allUsers.forEach(user => {
+            const isSelected = selectedAttendees.includes(user.name) || selectedAttendees.includes(user.email);
+            const checkbox = document.createElement("div");
+            checkbox.className = "attendee-item";
+            checkbox.innerHTML = `
+                <label style="display: flex; align-items: center; gap: 10px;">
+                    <input type="checkbox" value="${user.id}" ${isSelected ? 'checked' : ''}>
+                    <span>${user.name} (${user.email})</span>
+                </label>
+            `;
+            attendeeList.appendChild(checkbox);
         });
     }
 
     function getAttendees() {
-        const inputs = attendeeList.querySelectorAll("input");
-        return Array.from(inputs).map(input => input.value.trim()).filter(val => val !== "");
+        const checkedBoxes = attendeeList.querySelectorAll("input[type='checkbox']:checked");
+        return Array.from(checkedBoxes).map(cb => {
+            const user = allUsers.find(u => u.id == cb.value);
+            return user ? user.name : "";
+        }).filter(name => name !== "");
     }
 
     // Load events
@@ -726,11 +756,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 eventTime.value = ev.time;
                 document.getElementById("eventCategory").value = ev.category || "";
                 document.getElementById("eventDescription").value = ev.description;
-                // Populate attendees list
-                attendeeList.innerHTML = "";
-                if (ev.attendees && ev.attendees.length > 0) {
-                    ev.attendees.forEach(attendee => addAttendeeInput(attendee));
-                }
+                // Load users and pre-select attendees
+                loadUsers().then(() => {
+                    renderUserCheckboxes(ev.attendees || []);
+                });
 
                 saveEventBtn.dataset.editId = ev.id;
                 eventModal.querySelector("h2").textContent = "Edit Event";

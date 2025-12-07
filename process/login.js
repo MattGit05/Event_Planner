@@ -63,9 +63,9 @@ loginForm.addEventListener('submit', function(e){
 
         if(data.status === 'success'){
             if(data.role === 'admin'){
-                window.location.href = '../index.php';
+                window.location.href = '/WEB_DEV/Event_Planner/index.php';
             } else {
-                window.location.href = '../users/user_dashboard.php';
+                window.location.href = '/WEB_DEV/Event_Planner/user/user_dashboard.php';
             }
         }
     })

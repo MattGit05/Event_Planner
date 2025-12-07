@@ -492,6 +492,42 @@ $stmt->execute();
         }
         .remove-attendee:hover { color: #8e1c2a; }
 
+        .Nav {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.Nav .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--card-bg);
+    padding: 14px 22px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: 0.25s ease;
+    margin-bottom: 20px;
+}
+
+.Nav .nav-item:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.Nav .nav-item span.material-icons-round {
+    font-size: 20px;
+}
+
+
         /* Responsiveness */
         @media (max-width: 900px) {
             .dashboard-content {
@@ -516,7 +552,6 @@ $stmt->execute();
             <div class="subtitle">Professional event planner</div>
             <nav class="nav">
                 <a href="#" class="active"><span class="material-icons-round">dashboard</span> Dashboard</a>
-                <a href="my-events.php"><span class="material-icons-round">event</span> My Events</a>
                 <a href="calendar.php"><span class="material-icons-round">calendar_month</span> Calendar</a>
                 <a href="users.php"><span class="material-icons-round">group</span> View all Users</a>
                 <a href="#"><span class="material-icons-round">notifications</span> Notifications</a>
@@ -540,6 +575,17 @@ $stmt->execute();
                 <p>Overview & insights for your events</p>
             </div>
             <button class="logout-btn" onclick="window.location='logout.php'">Logout</button>
+        </div>
+      <div class="Nav">
+            <a href="chat_users.php" class="nav-item">
+                <span class="material-icons-round">chat</span>
+                <span>Chat with Users</span>
+            </a>
+
+            <a href="my-events.php" class="nav-item" style="grid-column: 3;">
+                <span class="material-icons-round">event</span>
+                <span>My Events</span>
+            </a>
         </div>
 
         <div class="cards">
