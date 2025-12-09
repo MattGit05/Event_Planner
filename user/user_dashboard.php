@@ -123,7 +123,10 @@ $events_table = $events_stmt->get_result();
       <a class="nav-link mb-2" href="my_events.php"><i class="fa-regular fa-calendar-days fa-fw"></i> My Events</a>
       <a class="nav-link mb-2" href="calendar.php"><i class="fa-regular fa-calendar fa-fw"></i> Calendar</a>
       <a class="nav-link mb-2" href="notifications.php"><i class="fa-regular fa-bell fa-fw"></i> Notifications</a>
+      <a class="nav-link mb-2" href="chat.php"><i class="fa-regular fa-comments fa-fw"></i> Chat</a>
       <a class="nav-link mb-3" href="user_settings.php"><i class="fa-regular fa-gear fa-fw"></i> Settings</a>
+      <a href="user_qr.php">View My QR Code</a>
+
 
       <div style="height:18px"></div>
       <div class="border-top pt-3">

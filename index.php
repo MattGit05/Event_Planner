@@ -21,6 +21,7 @@ $stmt->execute();
     <title>Eventify Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
     <style>
         /* --- CSS Variables (Consistent with other pages) --- */
         :root {
@@ -559,7 +560,11 @@ $stmt->execute();
                 <a href="#" class="active"><span class="material-icons-round">dashboard</span> Dashboard</a>
                 <a href="calendar.php"><span class="material-icons-round">calendar_month</span> Calendar</a>
                 <a href="users.php"><span class="material-icons-round">group</span> View all Users</a>
-                <a href="#"><span class="material-icons-round">notifications</span> Notifications</a>
+               <li class="nav-item">
+                    <a class="nav-link" href="notification.php">
+                        Notifications <span id="notifBadge" class="badge bg-danger">0</span>
+                    </a>
+                </li>
                 <a href="admin_settings.php"><span class="material-icons-round">settings</span> Settings</a>
                 <a href="Budgeting/budget.php"><span class="material-icons-round">account_balance_wallet</span> Budget</a>
             </nav>
@@ -588,10 +593,15 @@ $stmt->execute();
                 <span>Chat with Users</span>
             </a>
 
-            <a href="my-events.php" class="nav-item" style="grid-column: 3;">
+            <a href="my-events.php" class="nav-item">
                 <span class="material-icons-round">event</span>
                 <span>My Events</span>
             </a>
+
+            <button id="scanQRBtn" class="nav-item" style="border: none; background: none; cursor: pointer;">
+                <span class="material-icons-round">qr_code_scanner</span>
+                <span>Scan QR</span>
+            </button>
         </div>
 
         <div class="cards">
@@ -681,7 +691,21 @@ $stmt->execute();
             </div>
         </div>
     </div>
-    
+
+    <!-- QR Scanner Modal -->
+    <div class="modal" id="qrScannerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Scan QR Code</h2>
+                <span id="closeQRModal" class="close-btn" title="Close Modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <video id="qrVideo" style="width: 100%; max-width: 400px; border-radius: 8px;"></video>
+                <p id="qrResult" style="margin-top: 15px; font-weight: bold; text-align: center;"></p>
+            </div>
+        </div>
+    </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", async () => {
         const ctx = document.getElementById("categoryChart");
@@ -887,7 +911,65 @@ $stmt->execute();
 
         // loadUsers();
         // setInterval(loadUsers, 60000);
-        
+
+        // ✅ QR Scanner functionality
+        const qrScannerModal = document.getElementById("qrScannerModal");
+        const closeQRModal = document.getElementById("closeQRModal");
+        const scanQRBtn = document.getElementById("scanQRBtn");
+        const qrVideo = document.getElementById("qrVideo");
+        const qrResult = document.getElementById("qrResult");
+        let scanner = null;
+
+        // Open QR Scanner Modal
+        scanQRBtn.addEventListener("click", () => {
+            qrScannerModal.style.display = "flex";
+            qrResult.textContent = "Initializing camera...";
+            startScanner();
+        });
+
+        // Close QR Scanner Modal
+        closeQRModal.addEventListener("click", () => {
+            qrScannerModal.style.display = "none";
+            stopScanner();
+        });
+
+        window.addEventListener("click", (event) => {
+            if (event.target === qrScannerModal) {
+                qrScannerModal.style.display = "none";
+                stopScanner();
+            }
+        });
+
+        function startScanner() {
+            scanner = new Instascan.Scanner({ video: qrVideo });
+            scanner.addListener('scan', function (content) {
+                qrResult.textContent = "Scanned: " + content;
+                // You can add more logic here, e.g., process the QR content
+                console.log('QR Code content:', content);
+                // Stop scanning after successful scan
+                stopScanner();
+            });
+
+            Instascan.Camera.getCameras().then(function (cameras) {
+                if (cameras.length > 0) {
+                    scanner.start(cameras[0]);
+                    qrResult.textContent = "Camera ready. Point at QR code.";
+                } else {
+                    qrResult.textContent = "No cameras found.";
+                }
+            }).catch(function (e) {
+                console.error(e);
+                qrResult.textContent = "Camera access denied or unavailable.";
+            });
+        }
+
+        function stopScanner() {
+            if (scanner) {
+                scanner.stop();
+                scanner = null;
+            }
+        }
+
         });
     </script>
 

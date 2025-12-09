@@ -18,31 +18,46 @@ signInButton.addEventListener('click', () => {
 // ===============================
 // SIGNUP FORM SUBMIT
 // ===============================
-const signupForm = document.getElementById('signupForm');
-signupForm.addEventListener('submit', function(e){
-    e.preventDefault();
-    alert('Signup form submitted');
+document.getElementById('signupForm').addEventListener('submit', async function(e) {
+    e.preventDefault(); // Prevent form submission
+
     const formData = new FormData(this);
 
-    fetch('signup.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(res => {
-        alert('Response status: ' + res.status);
-        return res.json();
-    })
-    .then(data => {
-        alert('Response data: ' + JSON.stringify(data));
-        alert(data.message);
-        if(data.status === 'success'){
-            signupForm.reset();
+    try {
+        const response = await fetch('signup.php', {
+            method: 'POST',
+            body: formData
+        });
+
+        // Check if response is OK
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
         }
-    })
-    .catch(err => {
-        alert('Signup Error: ' + err);
-        alert('An error occurred during signup. Check console for details.');
-    });
+
+        // Safely parse JSON
+        let data;
+        try {
+            data = await response.json();
+        } catch (jsonError) {
+            throw new Error('Invalid JSON response from server');
+        }
+
+        // Handle server response
+        if (data.status === 'success') {
+            alert(data.message);
+            console.log('User ID:', data.user_id);
+            console.log('QR code path:', data.qr_code);
+            // Optionally redirect or reset form
+            // window.location.href = 'login.html';
+        } else {
+            alert('Error: ' + data.message);
+        }
+
+    } catch (error) {
+        // Catch network errors or JSON parsing errors
+        console.error('Signup failed:', error);
+        alert('Signup failed. Please try again later.');
+    }
 });
 
 // ===============================

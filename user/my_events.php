@@ -113,6 +113,7 @@ while ($cat_row = $categories_result->fetch_assoc()) {
       <a class="nav-link active mb-2" href="my_events.php"><i class="fa-regular fa-calendar-days fa-fw"></i> My Events</a>
       <a class="nav-link mb-2" href="calendar.php"><i class="fa-regular fa-calendar fa-fw"></i> Calendar</a>
       <a class="nav-link mb-2" href="notifications.php"><i class="fa-regular fa-bell fa-fw"></i> Notifications</a>
+      <a class="nav-link mb-2" href="chat.php"><i class="fa-regular fa-comments fa-fw"></i> Chat</a>
       <a class="nav-link mb-3" href="user_settings.php"><i class="fa-regular fa-gear fa-fw"></i> Settings</a>
 
       <div style="height:18px"></div>
@@ -190,7 +191,8 @@ while ($cat_row = $categories_result->fetch_assoc()) {
                 </div>
                 <div class="d-flex gap-2 align-items-center">
                   <button onclick="viewEvent(<?= $row['id'] ?>)" class="btn btn-sm btn-outline-primary">View</button>
-                  <button onclick="openMessageModal(<?= $row['id'] ?>, '<?= htmlspecialchars($row['title']) ?>')" class="btn btn-sm btn-outline-info">Message</button>
+                   <button onclick="openMessageModal(<?= $row['id'] ?>, '<?= htmlspecialchars($row['title']) ?>', <?= $row['created_by'] ?>)" 
+                    class="btn btn-sm btn-outline-info">Message</button>
                   <?php if ($row['created_by'] == $user_id): ?>
                     <span class="badge bg-primary">Creator</span>
                     <a href="edit_event.php?id=<?= $row['id'] ?>" class="btn btn-sm btn-outline-warning">Edit</a>
@@ -214,5 +216,6 @@ while ($cat_row = $categories_result->fetch_assoc()) {
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

@@ -1,21 +1,18 @@
 <?php
 include 'db_config.php';
 
-header('Content-Type: application/json');
+if ($conn->connect_error) {
+    echo "Connection failed: " . $conn->connect_error;
+} else {
+    echo "Connected successfully";
 
-// Check if users table exists
-$result = $conn->query("SHOW TABLES LIKE 'users'");
-if ($result->num_rows == 0) {
-    echo json_encode(['error' => 'Users table does not exist']);
-    exit;
+    $result = $conn->query("SHOW TABLES LIKE 'users'");
+    if ($result->num_rows > 0) {
+        echo " - users table exists";
+    } else {
+        echo " - users table does not exist";
+    }
 }
 
-// Describe users table
-$result = $conn->query("DESCRIBE users");
-$columns = [];
-while ($row = $result->fetch_assoc()) {
-    $columns[] = $row;
-}
-
-echo json_encode(['columns' => $columns]);
+$conn->close();
 ?>

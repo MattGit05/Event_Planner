@@ -58,3 +58,35 @@ Stack trace:
 #0 C:\xampp\htdocs\WEB_DEV\event_planner\save_event.php(61): mysqli->prepare('\r\n    INSERT IN...')
 #1 {main}
   thrown in C:\xampp\htdocs\WEB_DEV\event_planner\save_event.php on line 61
+[09-Dec-2025 01:37:27 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function ImageCreate() in C:\xampp\htdocs\WEB_DEV\Event_Planner\process\phpqrcode\qrimage.php:74
+Stack trace:
+#0 C:\xampp\htdocs\WEB_DEV\Event_Planner\process\phpqrcode\qrimage.php(32): QRimage::image(Array, 5, 4)
+#1 C:\xampp\htdocs\WEB_DEV\Event_Planner\process\phpqrcode\qrencode.php(494): QRimage::png(Array, 'qrcodes/user_26...', 5, 4, false)
+#2 C:\xampp\htdocs\WEB_DEV\Event_Planner\process\phpqrcode\qrencode.php(286): QRencode->encodePNG('USER:26', 'qrcodes/user_26...', false)
+#3 C:\xampp\htdocs\WEB_DEV\Event_Planner\process\signup.php(62): QRcode::png('USER:26', 'qrcodes/user_26...', 0, 5)
+#4 {main}
+  thrown in C:\xampp\htdocs\WEB_DEV\Event_Planner\process\phpqrcode\qrimage.php on line 74
+[09-Dec-2025 01:39:46 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function ImageCreate() in C:\xampp\htdocs\WEB_DEV\Event_Planner\process\phpqrcode\qrimage.php:74
+Stack trace:
+#0 C:\xampp\htdocs\WEB_DEV\Event_Planner\process\phpqrcode\qrimage.php(32): QRimage::image(Array, 5, 4)
+#1 C:\xampp\htdocs\WEB_DEV\Event_Planner\process\phpqrcode\qrencode.php(494): QRimage::png(Array, 'qrcodes/user_27...', 5, 4, false)
+#2 C:\xampp\htdocs\WEB_DEV\Event_Planner\process\phpqrcode\qrencode.php(286): QRencode->encodePNG('USER:27', 'qrcodes/user_27...', false)
+#3 C:\xampp\htdocs\WEB_DEV\Event_Planner\process\signup.php(62): QRcode::png('USER:27', 'qrcodes/user_27...', 0, 5)
+#4 {main}
+  thrown in C:\xampp\htdocs\WEB_DEV\Event_Planner\process\phpqrcode\qrimage.php on line 74
+[09-Dec-2025 01:44:22 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function ImageCreate() in C:\xampp\htdocs\WEB_DEV\Event_Planner\process\phpqrcode\qrimage.php:74
+Stack trace:
+#0 C:\xampp\htdocs\WEB_DEV\Event_Planner\process\phpqrcode\qrimage.php(32): QRimage::image(Array, 5, 4)
+#1 C:\xampp\htdocs\WEB_DEV\Event_Planner\process\phpqrcode\qrencode.php(494): QRimage::png(Array, 'qrcodes/user_28...', 5, 4, false)
+#2 C:\xampp\htdocs\WEB_DEV\Event_Planner\process\phpqrcode\qrencode.php(286): QRencode->encodePNG('USER:28', 'qrcodes/user_28...', false)
+#3 C:\xampp\htdocs\WEB_DEV\Event_Planner\process\signup.php(72): QRcode::png('USER:28', 'qrcodes/user_28...', 0, 5)
+#4 {main}
+  thrown in C:\xampp\htdocs\WEB_DEV\Event_Planner\process\phpqrcode\qrimage.php on line 74
+[09-Dec-2025 01:52:42 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function ImageCreate() in C:\xampp\htdocs\WEB_DEV\Event_Planner\process\phpqrcode\qrimage.php:74
+Stack trace:
+#0 C:\xampp\htdocs\WEB_DEV\Event_Planner\process\phpqrcode\qrimage.php(32): QRimage::image(Array, 5, 4)
+#1 C:\xampp\htdocs\WEB_DEV\Event_Planner\process\phpqrcode\qrencode.php(494): QRimage::png(Array, 'qrcodes/user_29...', 5, 4, false)
+#2 C:\xampp\htdocs\WEB_DEV\Event_Planner\process\phpqrcode\qrencode.php(286): QRencode->encodePNG('USER:29', 'qrcodes/user_29...', false)
+#3 C:\xampp\htdocs\WEB_DEV\Event_Planner\process\signup.php(62): QRcode::png('USER:29', 'qrcodes/user_29...', 0, 5)
+#4 {main}
+  thrown in C:\xampp\htdocs\WEB_DEV\Event_Planner\process\phpqrcode\qrimage.php on line 74
